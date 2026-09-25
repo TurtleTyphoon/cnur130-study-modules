@@ -37,6 +37,8 @@ Open `index.html` in a browser, or visit the hosted site. Quiz progress is saved
 - **Difficulty labels** (`netlify/functions/qstats.mjs`): the first attempt at each question is recorded anonymously, and questions show Easy / Medium / Hard and "N% of the class got this right" once enough classmates have answered. NCLEX practice can be filtered by difficulty.
 - **Select all that apply** (NCLEX → Select all that apply): 24 SATA questions scored NCLEX-style (+1 for each right pick, −1 for each wrong pick, never below 0).
 - **Why not the others**: every chapter quiz, check-yourself and NCLEX question explains each wrong option. Distractors were rewritten so the correct answer is no longer the obviously longest one.
+- **Shuffled options**: answer options are shuffled once per question (the same order for everyone, so duels and live games match), so the correct answer is spread across A–D instead of mostly B. True/false questions and questions with options like "B and C" or "Both" keep their order. Answers saved before the shuffle are converted automatically.
+- **Points**: learning-outcome ticks no longer earn points (or count toward readiness and mastery); they're just a personal checklist.
 - **Drug card binder** (Games → Drug Games → Drug card binder): 33 collectible cards built from the Drug review tables, in four rarities. Packs are earned every 5 correct answers; a specific card can be won by answering a question about it.
 - **Heart sound trainer** (Practice → Head-to-Toe → Heart sounds): normal S1/S2, S3, S4, three murmurs and a friction rub, generated in the browser with Web Audio, with a learn mode and a quiz.
 
