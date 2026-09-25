@@ -95,3 +95,9 @@ Also:
 - **PRN's monitor** is a rounded navy-to-blue screen with a glowing trace.
 - **Link previews:** the page title is "CNUR 130 · Pathotherapeutics Study". `public/` holds `og.jpg` (the share image), the home-screen icons and a web manifest; the build copies them into `dist/` and adds the description, Open Graph and Twitter tags to the page head.
 - **Full screen:** figures, concept maps, step-through diagrams and the knowledge graph have an Expand button (bottom right). Close or Esc returns to the page.
+- **Bookmarks:** hover any section in a chapter and tap the ☆ on its left (top right on narrow screens).
+- **Highlights and notes:** select text in a chapter to highlight it in yellow, green, pink or blue, or to add a ✎ note. Notes show as cards under the paragraph and can be edited in place. Selecting highlighted text again offers Remove.
+- Both are listed under Progress → Bookmarks & notes, with a link back to the spot. They're saved with your progress and drawn with the CSS Custom Highlight API, which doesn't change the page text.
+- **PRN is chattier:** it reacts to more answers, checks in every minute or so while you study (pearls, mnemonics, time on task, tips), comments on new section headings, and reacts to bookmarks, highlights and notes. It stays quiet when notifications are reduced, in focus mode or when presenting.
+- **Glossary tooltips:** glossary terms in chapter text show their definition on hover (tap on phones), with "Open in glossary →" to jump to the term.
+- **Related games:** every Module 1–4 chapter ends with practice cards: NCLEX filtered to that chapter's topic, Patho games, Drug games, that module's Jeopardy board, a duel on that module, and Flashcards.
