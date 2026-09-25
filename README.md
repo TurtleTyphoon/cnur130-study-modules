@@ -81,9 +81,17 @@ The site matches the icon set:
 - rounded cards and pill buttons, soft shadows and light outlines
 - each module's colour on the selected tab and chapter (Module 1 blue, 2 pink, 3 green, 4 purple)
 
-This is a stylesheet layer (the `--paper`, `--ink`, `--acc` tokens) that restyles the existing inline styles by matching their colours, so canvases, diagrams and icons are untouched. Dark mode still uses the page-inversion filter, which keeps diagrams and drawings readable.
+This is a stylesheet layer (the `--paper`, `--ink`, `--acc` tokens) that restyles the existing inline styles by matching their colours, so canvases, diagrams and icons are untouched. Dark mode has its own palette: navy with blue accents, or warm brown with amber for Night. Diagrams, picture cards and the knowledge graph sit on light panels so they stay readable.
 
 Also:
 - Exam readiness shows a letter-grade badge when the grade is exactly A+, A, B, C, D or F.
 - Duel, live game and report errors show an offline or error icon.
 - PRN's busy messages show a loading icon.
+
+## Avatars, games and sharing
+
+- **Avatars** use the character icons, with a gradient background circle and an optional corner badge. The Wardrobe (Progress → My profile) offers 19 characters, 10 backgrounds and 9 badges, some unlocked by points, streaks or chapters. Old avatars convert automatically: the old hairstyle picks the closest nurse character.
+- **Name that picture** (Games → Patho games): name the organ, cell, microbe, tissue, ECG rhythm or drug route shown (71 pictures).
+- **Knowledge graph** chapter and module dots show their icons.
+- **PRN's monitor** is a rounded navy-to-blue screen with a glowing trace.
+- **Link previews:** the page title is "CNUR 130 · Pathotherapeutics Study". `public/` holds `og.jpg` (the share image), the home-screen icons and a web manifest; the build copies them into `dist/` and adds the description, Open Graph and Twitter tags to the page head.
