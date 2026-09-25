@@ -94,3 +94,4 @@ Also:
 - **Knowledge graph** chapter and module dots show their icons.
 - **PRN's monitor** is a rounded navy-to-blue screen with a glowing trace.
 - **Link previews:** the page title is "CNUR 130 · Pathotherapeutics Study". `public/` holds `og.jpg` (the share image), the home-screen icons and a web manifest; the build copies them into `dist/` and adds the description, Open Graph and Twitter tags to the page head.
+- **Full screen:** figures, concept maps, step-through diagrams and the knowledge graph have an Expand button (bottom right). Close or Esc returns to the page.
