@@ -47,5 +47,9 @@ if (!head) throw new Error("Template has no <head>.");
 const at = head.index + head[0].length;
 template = template.slice(0, at) + "<script>window.__resources = " + JSON.stringify(resources).replace(/<\//g, "<\\/") + ";</script>" + template.slice(at);
 
+// Link previews and home-screen icons: static files from public/, and their tags in <head>.
+if (fs.existsSync("public")) for (const f of fs.readdirSync("public")) fs.copyFileSync("public/" + f, "dist/" + f);
+const META = "<meta name=\"description\" content=\"Interactive study site for CNUR 130 Pathotherapeutics: chapter notes, NCLEX-style practice, drug cards, games and class progress.\"><meta property=\"og:type\" content=\"website\"><meta property=\"og:title\" content=\"CNUR 130 \u00b7 Pathotherapeutics Study\"><meta property=\"og:description\" content=\"Interactive study site for CNUR 130 Pathotherapeutics: chapter notes, NCLEX-style practice, drug cards, games and class progress.\"><meta property=\"og:url\" content=\"https://cnur130.netlify.app/\"><meta property=\"og:image\" content=\"https://cnur130.netlify.app/og.jpg\"><meta property=\"og:image:width\" content=\"1200\"><meta property=\"og:image:height\" content=\"630\"><meta name=\"twitter:card\" content=\"summary_large_image\"><meta name=\"twitter:image\" content=\"https://cnur130.netlify.app/og.jpg\"><meta name=\"theme-color\" content=\"#2456D6\"><link rel=\"apple-touch-icon\" href=\"/apple-touch-icon.png\"><link rel=\"manifest\" href=\"/manifest.webmanifest\">";
+template = template.replace(/<head[^>]*>/i, (h) => h + META);
 fs.writeFileSync("dist/index.html", template);
 console.log(`Unbundled ${Object.keys(urls).length} assets; dist/index.html is ${(template.length / 1024).toFixed(0)} KB.`);
