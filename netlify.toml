@@ -1,10 +1,16 @@
-# Netlify deploy config: the site is a single static index.html, no build step.
+# Netlify deploy config. index.html is a self-extracting bundle; the build step unpacks it
+# into dist/ so pages load without decompressing on every visit (see scripts/unbundle.mjs).
 [build]
-  publish = "."
-  command = ""
+  publish = "dist"
+  command = "node scripts/unbundle.mjs"
 
 [[headers]]
   for = "/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

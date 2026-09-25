@@ -6,10 +6,10 @@ Open `index.html` in a browser, or visit the hosted site. Quiz progress is saved
 
 ## Hosting on Netlify
 
-The site is one static `index.html` with no build step; `netlify.toml` tells Netlify to publish the repo root.
+`index.html` is the source: a self-extracting single file that also works on its own (GitHub Pages, or opened directly). On Netlify, `scripts/unbundle.mjs` runs as the build step and writes `dist/` with the page as plain HTML and content-hashed asset files, so it loads faster and repeat visits come from the browser cache.
 
 1. In Netlify, choose **Add new site → Import an existing project → GitHub** and pick `TurtleTyphoon/cnur130-study-modules`.
-2. Leave the build command empty and the publish directory as `.` (both come from `netlify.toml`).
+2. Leave the build settings as they are; `netlify.toml` sets the build command and the `dist` publish directory.
 3. Deploy. Every push to `main` redeploys automatically.
 
 ## Class leaderboard
@@ -35,4 +35,14 @@ The site is one static `index.html` with no build step; `netlify.toml` tells Net
 - **Knowledge map** (Me → Knowledge map): every chapter as a tile shaded by mastery.
 - **Drug card binder** (Games → Drug Games → Drug card binder): 33 collectible cards built from the Drug review tables, in four rarities. Packs are earned every 5 correct answers; a specific card can be won by answering a question about it.
 - **Heart sound trainer** (Practice → Head-to-Toe → Heart sounds): normal S1/S2, S3, S4, three murmurs and a friction rub, generated in the browser with Web Audio, with a learn mode and a quiz.
+
+## Navigation and settings
+
+- Every chapter has its own address (`#/module/chapter`), so Back/Forward work and links can be shared.
+- Search: Ctrl K or `/` anywhere, across chapters (including their text), glossary terms and drugs.
+- Practice and Games open on All practice / All games overview pages; the Me tab is now Progress.
+- Settings (header button): Light/Dark/Night, sound, notifications (All / Quiet / Off), focus mode, PRN on/off, projector mode, the tour and What's new.
+- First-time visitors get a five-step tour; returning visitors see What's new once per release (`WN_VER` in the page code).
+- Answer feedback is the same everywhere: blue with ✓ for the right answer, strikethrough with ✗ for a wrong pick.
+- Exam readiness and the knowledge map count only accuracy and questions tried, not ticked learning objectives.
 
