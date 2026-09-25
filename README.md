@@ -52,3 +52,14 @@ Open `index.html` in a browser, or visit the hosted site. Quiz progress is saved
 - Answer feedback is the same everywhere: blue with ✓ for the right answer, strikethrough with ✗ for a wrong pick.
 - Exam readiness and the knowledge map count only accuracy and questions tried, not ticked learning objectives.
 
+## Icons
+
+The colour icons come from the "Pathotherapeutics Icons" design (Claude Design). The full library, 456 icons in 45 sets, is saved as separate SVG files in `design/icons/<set>/` for future use. The site embeds only the ones it uses (in `pico()`), and they are used for:
+- section tabs, hub cards and chapter headers
+- the header (search, badges, dark mode, sound)
+- notifications and "Report a problem"
+- difficulty tags
+- correct/incorrect verdicts
+- the favicon
+
+In dark mode the page is colour-inverted, so icons get a counter-filter (`svg[data-ico]`) to keep their real colours.
