@@ -28,19 +28,27 @@ function clean(v, depth = 0) {
   }
   return out;
 }
+// Monday (UTC) of the current week, e.g. "2026-09-21". Weekly progress is measured from each
+// player's totals at their first sync of the week.
+const weekKey = (t = Date.now()) => { const d = new Date(t); d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 6) % 7)); return d.toISOString().slice(0, 10); };
+const totals = (st) => ({ pts: st?.points || 0, badges: st?.badges || 0, ans: (st?.quiz || 0) + (st?.checks || 0) + (st?.nclex || 0) });
 const cleanName = (n) => String(n || "").replace(/[\u0000-\u001f<>&"'`]/g, "").trim().slice(0, 24);
 
 export default async (req) => {
   const s = store();
 
+  const week = weekKey();
   if (req.method === "GET") {
     const { blobs } = await s.list();
     const rows = (await Promise.all(blobs.slice(0, 500).map((b) => s.get(b.key, { type: "json" }).catch(() => null))))
       .filter(Boolean)
-      .map(({ id, name, avatar, st, t }) => ({ id, name, avatar, st, t }))
+      .map(({ id, name, avatar, st, t, wk }) => {
+        const now = totals(st), base = wk && wk.k === week ? wk.base : null;
+        return { id, name, avatar, st, t, week: base ? { pts: Math.max(0, now.pts - base.pts), badges: Math.max(0, now.badges - base.badges), ans: Math.max(0, now.ans - base.ans) } : { pts: 0, badges: 0, ans: 0 } };
+      })
       .sort((a, b) => (b.st?.points || 0) - (a.st?.points || 0))
       .slice(0, 200);
-    return json({ rows });
+    return json({ rows, wk: week });
   }
 
   if (req.method !== "POST" && req.method !== "DELETE") return json({ error: "Method not allowed" }, 405);
@@ -63,11 +71,12 @@ export default async (req) => {
   const st = clean(body.st) || {};
   if (!Array.isArray(st.perMod)) st.perMod = [];
   if (!Array.isArray(st.modPts)) st.modPts = [];
-  await s.setJSON(body.id, { id: body.id, name, avatar: clean(body.avatar) || {}, st, h: hash(body.key), t: Date.now() });
+  const wk = existing && existing.wk && existing.wk.k === week ? existing.wk : { k: week, base: totals(existing ? existing.st : st) };
+  await s.setJSON(body.id, { id: body.id, name, avatar: clean(body.avatar) || {}, st, wk, h: hash(body.key), t: Date.now() });
   return json({ ok: true });
 };
 
 export const config = {
   path: "/api/board",
-  rateLimit: { windowLimit: 30, windowSize: 60, aggregateBy: ["ip", "domain"] },
+  rateLimit: { windowLimit: 600, windowSize: 60, aggregateBy: ["ip", "domain"] },
 };
