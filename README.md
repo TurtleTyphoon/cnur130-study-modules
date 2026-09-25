@@ -71,3 +71,19 @@ Also:
 - PRN is the retro buddy, and its face follows what's happening: correct, wrong, star-struck on a streak, error on a flatline, loading, thinking, sleeping at night and so on
 
 In dark mode the page is colour-inverted, so icons get a counter-filter (`svg[data-ico]`) to keep their real colours.
+
+## Look and feel
+
+The site matches the icon set:
+- a blue gradient background that fades into white, with a light grain texture
+- dark navy text and blue gradient buttons and highlights
+- Bricolage Grotesque headings and DM Mono labels
+- rounded cards and pill buttons, soft shadows and light outlines
+- each module's colour on the selected tab and chapter (Module 1 blue, 2 pink, 3 green, 4 purple)
+
+This is a stylesheet layer (the `--paper`, `--ink`, `--acc` tokens) that restyles the existing inline styles by matching their colours, so canvases, diagrams and icons are untouched. Dark mode still uses the page-inversion filter, which keeps diagrams and drawings readable.
+
+Also:
+- Exam readiness shows a letter-grade badge when the grade is exactly A+, A, B, C, D or F.
+- Duel, live game and report errors show an offline or error icon.
+- PRN's busy messages show a loading icon.
