@@ -62,4 +62,12 @@ The colour icons come from the "Pathotherapeutics Icons" design (Claude Design).
 - correct/incorrect verdicts
 - the favicon
 
+Also:
+- answer letters A–D become tiles, with ✓/✗ shown as correct/incorrect icons, across every quiz and game (`[data-mk]` spans keep the text for screen readers)
+- the warm-up is True or false, with pill buttons, and true/false check-yourself questions use the same pills
+- outcomes use checkbox icons, and sidebar chapters show not started / in progress / completed
+- each chapter header has its own icon (organs, conditions, ECG and so on), and drug cards show their drug-class label
+- home stats, the timed exam and heart-sound play/stop have icons
+- PRN is the retro buddy, and its face follows what's happening: correct, wrong, star-struck on a streak, error on a flatline, loading, thinking, sleeping at night and so on
+
 In dark mode the page is colour-inverted, so icons get a counter-filter (`svg[data-ico]`) to keep their real colours.
