@@ -30,9 +30,15 @@ Open `index.html` in a browser, or visit the hosted site. Quiz progress is saved
 - **Class progress** (Me → Class progress, and a card on Home): class totals and a weekly shared goal. `board.mjs` records each player's totals at their first sync of the week (weeks start Monday, UTC); when the goal is met, everyone gets the Team effort flair.
 - **Alerts**: pop-up notices when a classmate passes you, when a module title is within 50 points, when you win a title or unlock a flair, and when the class goal is reached. Each notice has a "Turn off these alerts" link.
 - **Dark mode**: the header button cycles Light → Dark → Night (warm). It follows the device's dark setting until someone picks a mode.
-- **Exam readiness** (Me → Exam readiness, card on Home): a score per module from accuracy, questions tried and outcomes ticked, reduced after a week without practice.
+- **Exam readiness** (Me → Exam readiness, card on Home): a score per module from accuracy and questions tried (learning-outcome ticks don't count), reduced after a week without practice.
 - **Confidence rating**: optional Sure / Think so / Guessing buttons on chapter quizzes, check-yourself and NCLEX questions. Wrong "Sure" answers appear under Confidently wrong on Weak spots; Exam readiness shows how often each level is right; lucky guesses count half toward readiness.
-- **Knowledge map** (Me → Knowledge map): every chapter as a tile shaded by mastery.
+- **Knowledge map** (Progress → Knowledge map): an Obsidian-style graph of chapters, key terms and drugs. Drag to pan, scroll to zoom, click a node to open it, and filter by name. A Grid view shows every chapter as a tile shaded by mastery.
+- **Letter grades**: quizzes, chapters, modules and Exam readiness show a TMU letter grade (A+ at 90% and above, down to F below 50%).
+- **Difficulty labels** (`netlify/functions/qstats.mjs`): the first attempt at each question is recorded anonymously, and questions show Easy / Medium / Hard and "N% of the class got this right" once enough classmates have answered. NCLEX practice can be filtered by difficulty.
+- **Select all that apply** (NCLEX → Select all that apply): 24 SATA questions scored NCLEX-style (+1 for each right pick, −1 for each wrong pick, never below 0).
+- **Why not the others**: every chapter quiz, check-yourself and NCLEX question explains each wrong option. Distractors were rewritten so the correct answer is no longer the obviously longest one.
+- **Shuffled options**: answer options are shuffled once per question (the same order for everyone, so duels and live games match), so the correct answer is spread across A–D instead of mostly B. True/false questions and questions with options like "B and C" or "Both" keep their order. Answers saved before the shuffle are converted automatically.
+- **Points**: learning-outcome ticks no longer earn points (or count toward readiness and mastery); they're just a personal checklist.
 - **Drug card binder** (Games → Drug Games → Drug card binder): 33 collectible cards built from the Drug review tables, in four rarities. Packs are earned every 5 correct answers; a specific card can be won by answering a question about it.
 - **Heart sound trainer** (Practice → Head-to-Toe → Heart sounds): normal S1/S2, S3, S4, three murmurs and a friction rub, generated in the browser with Web Audio, with a learn mode and a quiz.
 
