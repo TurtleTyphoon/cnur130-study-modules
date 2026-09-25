@@ -99,3 +99,5 @@ Also:
 - **Highlights and notes:** select text in a chapter to highlight it in yellow, green, pink or blue, or to add a ✎ note. Notes show as cards under the paragraph and can be edited in place. Selecting highlighted text again offers Remove.
 - Both are listed under Progress → Bookmarks & notes, with a link back to the spot. They're saved with your progress and drawn with the CSS Custom Highlight API, which doesn't change the page text.
 - **PRN is chattier:** it reacts to more answers, checks in every minute or so while you study (pearls, mnemonics, time on task, tips), comments on new section headings, and reacts to bookmarks, highlights and notes. It stays quiet when notifications are reduced, in focus mode or when presenting.
+- **Glossary tooltips:** glossary terms in chapter text show their definition on hover (tap on phones), with "Open in glossary →" to jump to the term.
+- **Related games:** every Module 1–4 chapter ends with practice cards: NCLEX filtered to that chapter's topic, Patho games, Drug games, that module's Jeopardy board, a duel on that module, and Flashcards.
