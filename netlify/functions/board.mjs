@@ -69,5 +69,5 @@ export default async (req) => {
 
 export const config = {
   path: "/api/board",
-  rateLimit: { windowLimit: 30, windowSize: 60, aggregateBy: ["ip", "domain"] },
+  rateLimit: { windowLimit: 600, windowSize: 60, aggregateBy: ["ip", "domain"] },
 };
