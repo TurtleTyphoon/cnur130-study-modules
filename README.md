@@ -75,9 +75,10 @@ In dark mode the page is colour-inverted, so icons get a counter-filter (`svg[da
 ## Look and feel
 
 The site matches the icon set:
-- cream background and dark green ink
+- a blue gradient background that fades into white, with a light grain texture
+- dark navy text and blue gradient buttons and highlights
 - Bricolage Grotesque headings and DM Mono labels
-- rounded cards and pill buttons, soft shadows and lighter green outlines
+- rounded cards and pill buttons, soft shadows and light outlines
 - each module's colour on the selected tab and chapter (Module 1 blue, 2 pink, 3 green, 4 purple)
 
 This is a stylesheet layer (the `--paper`, `--ink`, `--acc` tokens) that restyles the existing inline styles by matching their colours, so canvases, diagrams and icons are untouched. Dark mode still uses the page-inversion filter, which keeps diagrams and drawings readable.
