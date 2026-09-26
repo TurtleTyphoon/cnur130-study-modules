@@ -8,7 +8,7 @@ Open `index.html` in a browser, or visit the hosted site. Quiz progress is saved
 
 `index.html` is the source: a self-extracting single file that also works on its own (GitHub Pages, or opened directly). On Netlify, `scripts/unbundle.mjs` runs as the build step and writes `dist/` with the page as plain HTML and content-hashed asset files, so it loads faster and repeat visits come from the browser cache.
 
-1. In Netlify, choose **Add new site → Import an existing project → GitHub** and pick `TurtleTyphoon/cnur130-study-modules`.
+1. In Netlify, choose **Add new site → Import an existing project → GitHub** and pick `cedarrixshantz/cnur130-study-modules`.
 2. Leave the build settings as they are; `netlify.toml` sets the build command and the `dist` publish directory.
 3. Deploy. Every push to `main` redeploys automatically.
 
@@ -102,3 +102,8 @@ Also:
 - **Glossary tooltips:** glossary terms in chapter text show their definition on hover (tap on phones), with "Open in glossary →" to jump to the term.
 - **Related games:** every Module 1–4 chapter ends with practice cards: NCLEX filtered to that chapter's topic, Patho games, Drug games, that module's Jeopardy board, a duel on that module, and Flashcards.
 - **Key terms per chapter:** the terms defined in the chapter plus other glossary terms its text uses, preferring the same module, up to 16. On wide screens they're in the "In the margin" rail (click a term to expand its definition); on narrower screens they're chips under the chapter intro with hover tooltips. Glossary tooltips also appear in learning outcomes, definitions and notes.
+
+## Where it's hosted
+
+- Netlify: https://cnur130.netlify.app (built from `dist/` by `scripts/unbundle.mjs`, with the Netlify Functions for class stats, duels, live games and reports).
+- GitHub Pages: https://cedarrixshantz.github.io/cnur130-study-modules/ (serves the repo's `index.html` as is). Features that need the Netlify Functions (class leaderboard and stats, duels, live games, problem reports, difficulty labels) only work on the Netlify address.
