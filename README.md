@@ -41,6 +41,7 @@ Open `index.html` in a browser, or visit the hosted site. Quiz progress is saved
 - **Points**: learning-outcome ticks no longer earn points (or count toward readiness and mastery); they're just a personal checklist.
 - **Drug card binder** (Games → Drug Games → Drug card binder): 33 collectible cards built from the Drug review tables, in four rarities. Packs are earned every 5 correct answers; a specific card can be won by answering a question about it.
 - **Heart sound trainer** (Practice → Head-to-Toe → Heart sounds): normal S1/S2, S3, S4, three murmurs and a friction rub, generated in the browser with Web Audio, with a learn mode and a quiz.
+- **Objective coach** (Module 4 → Objective path, and a **Learn it →** button beside every Module 4 learning outcome): each objective has Teach (explanation, key points, diagram, “On the unit”, exam trap, memory hook, page references), Check (recall questions), Apply (clinical scenarios: multiple choice, select all that apply, matrix) and an optional Explain it back. Getting every Check and Apply question right masters the objective; reviews come due after 1, 3 and 7 days, and a missed review drops it back to Learning. Mastered objectives count toward Exam readiness for modules that have coach content (40% accuracy, 30% questions tried, 30% objectives mastered; review due counts half). Content lives in `coachData()` keyed by outcome id, so other modules can be added as data only.
 
 ## Navigation and settings
 
